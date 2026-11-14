@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red N° 2 de Escuelas Rurales - Galería Audiovisual</title>
+  <!-- Tipografías modernas desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================================
+       PALETA DE COLORES Y VARIABLES GENERALES
+       Puedes cambiar los colores principales aquí si lo deseas
+    ===================================================================== */
+    :root {
+      --verde-principal: #2d6a4f;      /* Verde bosque suave */
+      --verde-claro: #52b788;          /* Verde hoja */
+      --verde-fondo: #f2f8f5;          /* Fondo suave muy claro */
+      --azul-institucional: #1d3557;   /* Azul profundo educativo */
+      --acento-calido: #e07a5f;        /* Terracota / Naranja cálido */
+      --acento-calido-hover: #c96449;
+      --blanco: #ffffff;
+      --texto-oscuro: #1f2937;
+      --texto-gris: #4b5563;
+      --borde-suave: #e5e7eb;
+      --sombra-tarjeta: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    }
+
+    /* =====================================================================
+       ESTILOS BASE Y NAVEGACIÓN SUAVE
+    ===================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--texto-oscuro);
+      background-color: var(--blanco);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .logo-texto {
+      font-family: 'Nunito', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =====================================================================
+       1. ENCABEZADO (HEADER)
+    ===================================================================== */
+    header {
+      background-color: var(--blanco);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .contenedor-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: var(--verde-fondo);
+      border: 2px solid var(--verde-principal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--verde-principal);
+      font-size: 0.9rem;
+    }
+
+    .logo-texto {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--azul-institucional);
+      line-height: 1.2;
+    }
+
+    .logo-subtitulo {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--verde-principal);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: var(--texto-oscuro);
+      font-size: 0.98rem;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--verde-principal);
+    }
+
+    /* =====================================================================
+       2. PORTADA (HERO SECTION)
+    ===================================================================== */
+    .hero {
+      background: linear-gradient(135deg, var(--azul-institucional) 0%, var(--verde-principal) 100%);
+      color: var(--blanco);
+      padding: 5.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-contenido {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .etiqueta-hero {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.16);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 2.2rem;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-principal {
+      display: inline-block;
+      background-color: var(--acento-calido);
+      color: var(--blanco);
+      padding: 0.95rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: 0 8px 20px rgba(224, 122, 95, 0.35);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn-principal:hover {
+      background-color: var(--acento-calido-hover);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================================
+       3. GALERÍA DE VIDEOS
+    ===================================================================== */
+    .seccion-galeria {
+      padding: 4.5rem 1.5rem;
+      background-color: var(--verde-fondo);
+    }
+
+    .contenedor {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .encabezado-seccion {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .encabezado-seccion h2 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--azul-institucional);
+      margin-bottom: 0.6rem;
+    }
+
+    .encabezado-seccion p {
+      color: var(--texto-gris);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Botones de filtro */
+    .filtros {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .btn-filtro {
+      background-color: var(--blanco);
+      color: var(--texto-oscuro);
+      border: 1px solid var(--borde-suave);
+      padding: 0.6rem 1.35rem;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-filtro:hover {
+      border-color: var(--verde-principal);
+      color: var(--verde-principal);
+    }
+
+    .btn-filtro.activo {
+      background-color: var(--verde-principal);
+      color: var(--blanco);
+      border-color: var(--verde-principal);
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+    }
+
+    /* Cuadrícula de tarjetas */
+    .grid-videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2rem;
+    }
+
+    .tarjeta-video {
+      background-color: var(--blanco);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--sombra-tarjeta);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tarjeta-video:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 30px -5px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Contenedor responsivo 16:9 para YouTube y Google Drive */
+    .contenedor-reproductor {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* Proporción 16:9 */
+      background-color: #111827;
+    }
+
+    .contenedor-reproductor iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .info-video {
+      padding: 1.4rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meta-video {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .etiqueta-categoria {
+      background-color: var(--verde-fondo);
+      color: var(--verde-principal);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .fecha-escuela {
+      font-size: 0.82rem;
+      color: var(--texto-gris);
+      font-weight: 600;
+    }
+
+    .info-video h3 {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--azul-institucional);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .info-video p {
+      font-size: 0.94rem;
+      color: var(--texto-gris);
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* Limita visualmente a 2 líneas */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* =====================================================================
+       4. SOBRE LA RED
+    ===================================================================== */
+    .seccion-sobre {
+      padding: 4.5rem 1.5rem;
+      background-color: var(--blanco);
+    }
+
+    .caja-sobre {
+      background-color: var(--verde-fondo);
+      border-left: 6px solid var(--verde-principal);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .caja-sobre h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--azul-institucional);
+      margin-bottom: 1rem;
+    }
+
+    .caja-sobre p {
+      color: var(--texto-oscuro);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .lista-escuelas {
+      background-color: var(--blanco);
+      padding: 1.6rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    .lista-escuelas h3 {
+      font-size: 1.15rem;
+      color: var(--verde-principal);
+      margin-bottom: 0.9rem;
+      font-weight: 800;
+    }
+
+    .lista-escuelas ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.55rem;
+    }
+
+    .lista-escuelas li {
+      font-size: 0.92rem;
+      color: var(--texto-oscuro);
+      padding-left: 1.3rem;
+      position: relative;
+    }
+
+    .lista-escuelas li::before {
+      content: "🌱";
+      position: absolute;
+      left: 0;
+      font-size: 0.85rem;
+    }
+
+    /* =====================================================================
+       5. PIE DE PÁGINA (FOOTER)
+    ===================================================================== */
+    footer {
+      background-color: var(--azul-institucional);
+      color: var(--blanco);
+      padding: 3rem 1.5rem 1.8rem;
+    }
+
+    .contenido-footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .info-footer h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-footer p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.92rem;
+      max-width: 420px;
+    }
+
+    .enlaces-sociales {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-social {
+      background-color: rgba(255, 255, 255, 0.12);
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-social:hover {
+      background-color: var(--verde-claro);
+      color: var(--azul-institucional);
+    }
+
+    .creditos {
+      max-width: 1200px;
+      margin: 1.5rem auto 0;
+      text-align: center;
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .creditos strong {
+      color: #a7f3d0;
+    }
+
+    /* =====================================================================
+       ADAPTACIÓN A CELULARES Y TABLETS (RESPONSIVE)
+    ===================================================================== */
+    @media (max-width: 820px) {
+      .caja-sobre {
+        grid-template-columns: 1fr;
+        padding: 1.8rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contenedor-nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav ul {
+        gap: 1.1rem;
+      }
+
+      .grid-videos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================================
+       1. ENCABEZADO (HEADER)
+       INSTRUCCIÓN: Si tienes una imagen de logo (ej. "logo.png"), reemplaza
+       el <div class="logo-img">R2</div> por:
+       <img src="logo.png" alt="Logo Red N° 2" class="logo-img">
+  ===================================================================== -->
+  <header>
+    <div class="contenedor-nav">
+      <a href="#inicio" class="marca">
+        <div class="logo-img">R2</div>
+        <div>
+          <span class="logo-texto">Red N° 2 de Escuelas Rurales</span>
+          <span class="logo-subtitulo">Comunidad Educativa y Cultura</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#galeria">Galería de Videos</a></li>
+          <li><a href="#sobre-la-red">Sobre la Red</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       2. PORTADA (HERO SECTION)
+       INSTRUCCIÓN: Aquí puedes editar el título principal y el mensaje de
+       bienvenida que verán los visitantes apenas entren a la página.
+  ===================================================================== -->
+  <section id="inicio" class="hero">
+    <div class="hero-contenido">
+      <span class="etiqueta-hero">Educación Rural con Identidad y Futuro</span>
+      <h1>Nuestras Vivencias, Arte y Deporte en Movimiento</h1>
+      <p>
+        Bienvenido al espacio audiovisual de la Red N° 2 de Escuelas Rurales. Aquí compartimos los encuentros, logros y talentos de nuestros estudiantes, docentes y familias.
+      </p>
+      <a href="#galeria" class="btn-principal">Ver Videos ↓</a>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       3. GALERÍA DE VIDEOS (SECCIÓN PRINCIPAL)
+       INSTRUCCIÓN IMPORTANTE:
+       Los videos NO se escriben uno por uno aquí abajo en el HTML, sino en
+       la lista "misVideos" que está más abajo en la sección <script>.
+       Eso hace que sea mucho más fácil agregar, borrar o editar videos sin
+       desordenar el diseño.
+  ===================================================================== -->
+  <section id="galeria" class="seccion-galeria">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>Galería de Actividades</h2>
+        <p>Selecciona una categoría para filtrar los registros audiovisuales de nuestras escuelas.</p>
+      </div>
+
+      <!-- Botones de filtro -->
+      <div class="filtros" id="contenedor-filtros">
+        <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+        <button class="btn-filtro" data-categoria="deportes">Deportes</button>
+        <button class="btn-filtro" data-categoria="cultura">Cultura y Arte</button>
+        <button class="btn-filtro" data-categoria="actos">Actos Oficiales</button>
+      </div>
+
+      <!-- Aquí se dibujarán automáticamente todas las tarjetas de videos -->
+      <div class="grid-videos" id="grid-videos"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       4. SOBRE LA RED
+       INSTRUCCIÓN: Edita los párrafos y los nombres de las escuelas dentro
+       de la lista <ul> según corresponda a tu territorio.
+  ===================================================================== -->
+  <section id="sobre-la-red" class="seccion-sobre">
+    <div class="contenedor">
+      <div class="caja-sobre">
+        <div>
+          <h2>Sobre la Red N° 2 de Escuelas Rurales</h2>
+          <p>
+            Somos una agrupación colaborativa de establecimientos educacionales rurales comprometidos con el desarrollo integral de nuestros niños y niñas. Trabajamos unidos para fortalecer la identidad local, el intercambio pedagógico, el deporte y las expresiones artísticas.
+          </p>
+          <p>
+            A través de jornadas inter-escolares, fomentamos la sana convivencia, el compañerismo y el orgullo por nuestras raíces campesinas y comunitarias.
+          </p>
+        </div>
+
+        <div class="lista-escuelas">
+          <h3>Escuelas que integran nuestra Red</h3>
+          <ul>
+            <!-- INSTRUCCIÓN: Cambia o agrega nombres de escuelas copiando una línea <li>...</li> -->
+            <li>Escuela Básica San Antonio de la Villa</li>
+            <li>Escuela Rural Alcones Bajos</li>
+            <li>Escuela Rural Aurora de Chile</li>
+            <li>Escuela Rural Chalinga</li>
+            <li>Escuela Rural Los Acacios</li>
+            <li>Escuela Rural Marco Rigoberto Pizarro</li>
+            <li>Escuela Rural Patricio Zeballos</li>
+            <li>Escuela Rural Tabalí</li>
+            <li>Escuela Rural Unión Campesina</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5. PIE DE PÁGINA (FOOTER)
+       INSTRUCCIÓN: Cambia el correo de contacto o los enlaces de redes
+       sociales donde dice href="#".
+  ===================================================================== -->
+  <footer>
+    <div class="contenido-footer">
+      <div class="info-footer">
+        <h3>Red N° 2 de Escuelas Rurales</h3>
+        <p>
+          Compartiendo el quehacer pedagógico, cultural y deportivo de nuestras comunidades educativas rurales.
+        </p>
+        <p style="margin-top: 0.6rem;">📧 Contacto: contacto@red2rural.cl</p>
+      </div>
+
+      <div class="enlaces-sociales">
+        <!-- INSTRUCCIÓN: Reemplaza el símbolo # por el enlace real de YouTube o Facebook -->
+        <a href="#" target="_blank" class="btn-social">📺 Canal de YouTube</a>
+        <a href="#" target="_blank" class="btn-social">📘 Facebook Red N° 2</a>
+      </div>
+    </div>
+
+    <div class="creditos">
+      Desarrollado por <strong>Jaime Ossandón F. - Maestro Rural</strong>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       ZONA DE EDICIÓN DE VIDEOS (JAVASCRIPT)
+       ¡AQUÍ ES DONDE AGREGAS O EDITAS TUS VIDEOS FÁCILMENTE!
+  ===================================================================== -->
+  <script>
+    /* =====================================================================
+       GUÍA RÁPIDA PARA EDITAR TUS VIDEOS:
+       Cada bloque entre llaves { ... } es una tarjeta de video.
+       
+       1. titulo: El nombre del evento entre comillas.
+       2. categoria: Debe ser EXACTAMENTE una de estas tres palabras (en minúsculas):
+          - "deportes"
+          - "cultura"
+          - "actos"
+       3. fechaEscuela: La fecha y/o escuela anfitriona.
+       4. descripcion: Un resumen breve (idealmente 2 líneas).
+       5. enlace: Pega el enlace normal de YouTube O el enlace para compartir
+          de Google Drive. ¡El código lo convierte automáticamente para que
+          se reproduzca dentro de la página!
+    ===================================================================== */
+
+    const misVideos = [
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Unión Campesina",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        // EJEMPLO FUNCIONAL DE YOUTUBE:
+        enlace: "https://drive.google.com/file/d/1Rif_bVnFV2vyABd-vmnbmh70lnWSgtLe/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Los Nogales",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        // EJEMPLO FUNCIONAL DE YOUTUBE:
+        enlace: "https://drive.google.com/file/d/1S0RRJs713beYO0l_QO-Hscy_C9ABGsAX/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Esc. San Antonio de la Villa",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        // EJEMPLO DE GOOGLE DRIVE (Reemplaza este enlace por el enlace real de tu video en Drive):
+        enlace: "https://drive.google.com/file/d/1IS3CE9NseVokLSX7d6jMIUW6amT6stCi/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Esc. Tabalí",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        enlace: "https://drive.google.com/file/d/1wtpG99JhpUyI0koShI1JQd9rsC1uXXyR/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Esc. Chalinga",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        enlace: "https://drive.google.com/file/d/1eqensqrdYgiEzLLBdn3l5DR8TFGJxkC6/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Esc. Marcos Rigoberto Pizarro",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        enlace: "https://drive.google.com/file/d/1dCZZtXncgSv5L4sYEIk2wQdKul3NKnSB/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Esc. Patricio Zeballos",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        enlace: "https://drive.google.com/file/d/1kkiE_wPIXBOxstZ1-OqLAXk8y8etDW8k/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Deportivo",
+        categoria: "deporte",
+        fechaEscuela: "Octubre 2026 • Esc. RED2 ",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        enlace: "https://drive.google.com/file/d/1XsjAjHUxYGm1HXS7fJQFCPqhRcURvsRy/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Esc. Los Acacios",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        enlace: "https://drive.google.com/file/d/1z0pCLpXcY6RemWPrdBPyO2KonkUho_F4/view?usp=sharing"
+      },
+      {
+        titulo: "Encuentro Artístico Cultural Interescolar",
+        categoria: "cultura",
+        fechaEscuela: "Noviembre 2026 • Esc. Aurora de Chile",
+        descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
+        enlace: "https://drive.google.com/file/d/1iZ3kLYeMECgVML_kbgLDc5lsTsVOtRYm/view?usp=sharing"
+      },
+      {
+        titulo: "Inauguración Año Escolar Red N° 2",
+        categoria: "actos",
+        fechaEscuela: "Marzo 2026 • Escuelas Rurales",
+        descripcion: "Bienvenida oficial a los estudiantes, docentes y asistentes de la educación en el inicio de un nuevo periodo académico.",
+        enlace: "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+      }
+    ];
+
+    /* =====================================================================
+       NO ES NECESARIO EDITAR DE AQUÍ HACIA ABAJO
+       (Este código transforma tus enlaces y hace funcionar los filtros)
+    ===================================================================== */
+
+    // Función inteligente que convierte enlaces normales de YouTube o Google Drive en reproductores incrustados
+    function convertirEnlaceVideo(url) {
+      if (!url) return "";
+
+      // 1. Si es enlace de YouTube (youtube.com/watch?v=... o youtu.be/...)
+      const regexYT = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+      const matchYT = url.match(regexYT);
+      if (matchYT && matchYT[1]) {
+        return `https://www.youtube.com/embed/${matchYT[1]}`;
+      }
+
+      // 2. Si es enlace de Google Drive (drive.google.com/file/d/ID/view...)
+      const regexDrive = /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/;
+      const matchDrive = url.match(regexDrive);
+      if (matchDrive && matchDrive[1]) {
+        return `https://drive.google.com/file/d/${matchDrive[1]}/preview`;
+      }
+
+      // Si ya viene listo para embed, lo devuelve tal cual
+      return url;
+    }
+
+    // Traduce el código de categoría a un nombre bonito para la etiqueta
+    function obtenerNombreCategoria(cat) {
+      const nombres = {
+        deportes: "Deportes",
+        cultura: "Cultura y Arte",
+        actos: "Actos Oficiales"
+      };
+      return nombres[cat] || "Actividad";
+    }
+
+    // Dibuja las tarjetas en la pantalla
+    const gridVideos = document.getElementById("grid-videos");
+
+    function mostrarVideos(filtro = "todos") {
+      gridVideos.innerHTML = "";
+
+      const videosFiltrados = filtro === "todos"
+        ? misVideos
+        : misVideos.filter(video => video.categoria === filtro);
+
+      videosFiltrados.forEach(video => {
+        const urlReproductor = convertirEnlaceVideo(video.enlace);
+        const nombreCat = obtenerNombreCategoria(video.categoria);
+
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "tarjeta-video";
+        tarjeta.innerHTML = `
+          <div class="contenedor-reproductor">
+            <iframe 
+              src="${urlReproductor}" 
+              title="${video.titulo}" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+          <div class="info-video">
+            <div class="meta-video">
+              <span class="etiqueta-categoria">${nombreCat}</span>
+              <span class="fecha-escuela">${video.fechaEscuela}</span>
+            </div>
+            <h3>${video.titulo}</h3>
+            <p>${video.descripcion}</p>
+          </div>
+        `;
+        gridVideos.appendChild(tarjeta);
+      });
+    }
+
+    // Activa los botones de filtro
+    const botonesFiltro = document.querySelectorAll(".btn-filtro");
+    botonesFiltro.forEach(boton => {
+      boton.addEventListener("click", () => {
+        botonesFiltro.forEach(b => b.classList.remove("activo"));
+        boton.classList.add("activo");
+        const categoriaSeleccionada = boton.getAttribute("data-categoria");
+        mostrarVideos(categoriaSeleccionada);
+      });
+    });
+
+    // Carga todos los videos al abrir la página
+    mostrarVideos("todos");
+  </script>
+</body>
+</html>
