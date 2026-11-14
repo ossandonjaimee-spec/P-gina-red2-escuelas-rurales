@@ -118,6 +118,8 @@
       list-style: none;
       display: flex;
       gap: 1.8rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -129,6 +131,13 @@
 
     nav a:hover {
       color: var(--verde-principal);
+    }
+
+    .btn-menu-fotos {
+      background-color: var(--verde-principal);
+      color: var(--blanco) !important;
+      padding: 0.45rem 1rem;
+      border-radius: 50px;
     }
 
     /* =====================================================================
@@ -281,11 +290,10 @@
       box-shadow: 0 16px 30px -5px rgba(0, 0, 0, 0.12);
     }
 
-    /* Contenedor responsivo 16:9 para YouTube y Google Drive */
     .contenedor-reproductor {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%; /* Proporción 16:9 */
+      padding-bottom: 56.25%;
       background-color: #111827;
     }
 
@@ -343,7 +351,7 @@
       font-size: 0.94rem;
       color: var(--texto-gris);
       display: -webkit-box;
-      -webkit-line-clamp: 2; /* Limita visualmente a 2 líneas */
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -479,9 +487,6 @@
       color: #a7f3d0;
     }
 
-    /* =====================================================================
-       ADAPTACIÓN A CELULARES Y TABLETS (RESPONSIVE)
-    ===================================================================== */
     @media (max-width: 820px) {
       .caja-sobre {
         grid-template-columns: 1fr;
@@ -497,6 +502,7 @@
 
       nav ul {
         gap: 1.1rem;
+        justify-content: center;
       }
 
       .grid-videos {
@@ -507,12 +513,6 @@
 </head>
 <body>
 
-  <!-- =====================================================================
-       1. ENCABEZADO (HEADER)
-       INSTRUCCIÓN: Si tienes una imagen de logo (ej. "logo.png"), reemplaza
-       el <div class="logo-img">R2</div> por:
-       <img src="logo.png" alt="Logo Red N° 2" class="logo-img">
-  ===================================================================== -->
   <header>
     <div class="contenedor-nav">
       <a href="#inicio" class="marca">
@@ -528,16 +528,12 @@
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#galeria">Galería de Videos</a></li>
           <li><a href="#sobre-la-red">Sobre la Red</a></li>
+          <li><a href="https://padlet.com/ossandonjaimee/artistico-cultural-s025g8znnep5n1d0b2q2" target="_blank" class="btn-menu-fotos">📸 Galería de Fotos</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- =====================================================================
-       2. PORTADA (HERO SECTION)
-       INSTRUCCIÓN: Aquí puedes editar el título principal y el mensaje de
-       bienvenida que verán los visitantes apenas entren a la página.
-  ===================================================================== -->
   <section id="inicio" class="hero">
     <div class="hero-contenido">
       <span class="etiqueta-hero">Educación Rural con Identidad y Futuro</span>
@@ -549,14 +545,6 @@
     </div>
   </section>
 
-  <!-- =====================================================================
-       3. GALERÍA DE VIDEOS (SECCIÓN PRINCIPAL)
-       INSTRUCCIÓN IMPORTANTE:
-       Los videos NO se escriben uno por uno aquí abajo en el HTML, sino en
-       la lista "misVideos" que está más abajo en la sección <script>.
-       Eso hace que sea mucho más fácil agregar, borrar o editar videos sin
-       desordenar el diseño.
-  ===================================================================== -->
   <section id="galeria" class="seccion-galeria">
     <div class="contenedor">
       <div class="encabezado-seccion">
@@ -564,7 +552,6 @@
         <p>Selecciona una categoría para filtrar los registros audiovisuales de nuestras escuelas.</p>
       </div>
 
-      <!-- Botones de filtro -->
       <div class="filtros" id="contenedor-filtros">
         <button class="btn-filtro activo" data-categoria="todos">Todos</button>
         <button class="btn-filtro" data-categoria="deportes">Deportes</button>
@@ -572,16 +559,10 @@
         <button class="btn-filtro" data-categoria="actos">Actos Oficiales</button>
       </div>
 
-      <!-- Aquí se dibujarán automáticamente todas las tarjetas de videos -->
       <div class="grid-videos" id="grid-videos"></div>
     </div>
   </section>
 
-  <!-- =====================================================================
-       4. SOBRE LA RED
-       INSTRUCCIÓN: Edita los párrafos y los nombres de las escuelas dentro
-       de la lista <ul> según corresponda a tu territorio.
-  ===================================================================== -->
   <section id="sobre-la-red" class="seccion-sobre">
     <div class="contenedor">
       <div class="caja-sobre">
@@ -598,12 +579,12 @@
         <div class="lista-escuelas">
           <h3>Escuelas que integran nuestra Red</h3>
           <ul>
-            <!-- INSTRUCCIÓN: Cambia o agrega nombres de escuelas copiando una línea <li>...</li> -->
             <li>Escuela Básica San Antonio de la Villa</li>
             <li>Escuela Rural Alcones Bajos</li>
             <li>Escuela Rural Aurora de Chile</li>
             <li>Escuela Rural Chalinga</li>
             <li>Escuela Rural Los Acacios</li>
+            <li>Escuela Rural Los Nogales</li>
             <li>Escuela Rural Marco Rigoberto Pizarro</li>
             <li>Escuela Rural Patricio Zeballos</li>
             <li>Escuela Rural Tabalí</li>
@@ -614,11 +595,6 @@
     </div>
   </section>
 
-  <!-- =====================================================================
-       5. PIE DE PÁGINA (FOOTER)
-       INSTRUCCIÓN: Cambia el correo de contacto o los enlaces de redes
-       sociales donde dice href="#".
-  ===================================================================== -->
   <footer>
     <div class="contenido-footer">
       <div class="info-footer">
@@ -630,7 +606,6 @@
       </div>
 
       <div class="enlaces-sociales">
-        <!-- INSTRUCCIÓN: Reemplaza el símbolo # por el enlace real de YouTube o Facebook -->
         <a href="#" target="_blank" class="btn-social">📺 Canal de YouTube</a>
         <a href="#" target="_blank" class="btn-social">📘 Facebook Red N° 2</a>
       </div>
@@ -641,34 +616,16 @@
     </div>
   </footer>
 
-  <!-- =====================================================================
-       ZONA DE EDICIÓN DE VIDEOS (JAVASCRIPT)
-       ¡AQUÍ ES DONDE AGREGAS O EDITAS TUS VIDEOS FÁCILMENTE!
-  ===================================================================== -->
   <script>
     /* =====================================================================
-       GUÍA RÁPIDA PARA EDITAR TUS VIDEOS:
-       Cada bloque entre llaves { ... } es una tarjeta de video.
-       
-       1. titulo: El nombre del evento entre comillas.
-       2. categoria: Debe ser EXACTAMENTE una de estas tres palabras (en minúsculas):
-          - "deportes"
-          - "cultura"
-          - "actos"
-       3. fechaEscuela: La fecha y/o escuela anfitriona.
-       4. descripcion: Un resumen breve (idealmente 2 líneas).
-       5. enlace: Pega el enlace normal de YouTube O el enlace para compartir
-          de Google Drive. ¡El código lo convierte automáticamente para que
-          se reproduzca dentro de la página!
+       LISTA DE VIDEOS (TODOS Tus enlaces de Google Drive configurados)
     ===================================================================== */
-
     const misVideos = [
       {
         titulo: "Encuentro Artístico Cultural Interescolar",
         categoria: "cultura",
         fechaEscuela: "Noviembre 2026 • Unión Campesina",
         descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
-        // EJEMPLO FUNCIONAL DE YOUTUBE:
         enlace: "https://drive.google.com/file/d/1Rif_bVnFV2vyABd-vmnbmh70lnWSgtLe/view?usp=sharing"
       },
       {
@@ -676,7 +633,6 @@
         categoria: "cultura",
         fechaEscuela: "Noviembre 2026 • Los Nogales",
         descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
-        // EJEMPLO FUNCIONAL DE YOUTUBE:
         enlace: "https://drive.google.com/file/d/1S0RRJs713beYO0l_QO-Hscy_C9ABGsAX/view?usp=sharing"
       },
       {
@@ -684,7 +640,6 @@
         categoria: "cultura",
         fechaEscuela: "Noviembre 2026 • Esc. San Antonio de la Villa",
         descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
-        // EJEMPLO DE GOOGLE DRIVE (Reemplaza este enlace por el enlace real de tu video en Drive):
         enlace: "https://drive.google.com/file/d/1IS3CE9NseVokLSX7d6jMIUW6amT6stCi/view?usp=sharing"
       },
       {
@@ -717,8 +672,8 @@
       },
       {
         titulo: "Encuentro Deportivo",
-        categoria: "deporte",
-        fechaEscuela: "Octubre 2026 • Esc. RED2 ",
+        categoria: "deportes",
+        fechaEscuela: "Octubre 2026 • Esc. RED2",
         descripcion: "Durante el mes de octubre, nuestras escuelas rurales se dieron cita en una emocionante jornada deportiva diseñada para promover la vida activa, el compañerismo y la integración entre estudiantes de todo el territorio.",
         enlace: "https://drive.google.com/file/d/1XsjAjHUxYGm1HXS7fJQFCPqhRcURvsRy/view?usp=sharing"
       },
@@ -735,37 +690,27 @@
         fechaEscuela: "Noviembre 2026 • Esc. Aurora de Chile",
         descripcion: "Presentaciones de música folclórica y danza tradicional reuniendo a 10 establecimientos de nuestra red.",
         enlace: "https://drive.google.com/file/d/1iZ3kLYeMECgVML_kbgLDc5lsTsVOtRYm/view?usp=sharing"
-      },
-    
+      }
+    ];
 
     /* =====================================================================
-       NO ES NECESARIO EDITAR DE AQUÍ HACIA ABAJO
-       (Este código transforma tus enlaces y hace funcionar los filtros)
+       FUNCIONES DEL SISTEMA (NO EDITAR)
     ===================================================================== */
-
-    // Función inteligente que convierte enlaces normales de YouTube o Google Drive en reproductores incrustados
     function convertirEnlaceVideo(url) {
       if (!url) return "";
-
-      // 1. Si es enlace de YouTube (youtube.com/watch?v=... o youtu.be/...)
       const regexYT = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
       const matchYT = url.match(regexYT);
       if (matchYT && matchYT[1]) {
         return `https://www.youtube.com/embed/${matchYT[1]}`;
       }
-
-      // 2. Si es enlace de Google Drive (drive.google.com/file/d/ID/view...)
       const regexDrive = /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/;
       const matchDrive = url.match(regexDrive);
       if (matchDrive && matchDrive[1]) {
         return `https://drive.google.com/file/d/${matchDrive[1]}/preview`;
       }
-
-      // Si ya viene listo para embed, lo devuelve tal cual
       return url;
     }
 
-    // Traduce el código de categoría a un nombre bonito para la etiqueta
     function obtenerNombreCategoria(cat) {
       const nombres = {
         deportes: "Deportes",
@@ -775,12 +720,10 @@
       return nombres[cat] || "Actividad";
     }
 
-    // Dibuja las tarjetas en la pantalla
     const gridVideos = document.getElementById("grid-videos");
 
     function mostrarVideos(filtro = "todos") {
       gridVideos.innerHTML = "";
-
       const videosFiltrados = filtro === "todos"
         ? misVideos
         : misVideos.filter(video => video.categoria === filtro);
@@ -814,7 +757,6 @@
       });
     }
 
-    // Activa los botones de filtro
     const botonesFiltro = document.querySelectorAll(".btn-filtro");
     botonesFiltro.forEach(boton => {
       boton.addEventListener("click", () => {
@@ -825,7 +767,6 @@
       });
     });
 
-    // Carga todos los videos al abrir la página
     mostrarVideos("todos");
   </script>
 </body>
